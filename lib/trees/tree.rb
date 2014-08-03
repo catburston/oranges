@@ -1,4 +1,4 @@
-
+#tree.rb
 class Tree
   attr_reader  :height, :age
   def initialize
@@ -7,12 +7,13 @@ class Tree
     @max_growable_age = 0
     @death_age = 0
     @annual_growth = 0
+    @min_growable_age = 0
   end
 
   def age!
     @age += 1
     growable
-    # add_orange if can_bear_fruit?
+    add_fruit if can_bear_fruit?
   end
 
   def growable
@@ -26,4 +27,9 @@ class Tree
   def height!
     @height += @annual_growth
   end
+
+  def can_bear_fruit?
+    @age >= @min_growable_age && !dead?
+  end
+
 end

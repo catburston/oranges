@@ -1,9 +1,12 @@
+require_relative '../lib/trees/tree'
 require_relative '../lib/trees/apple_tree'
 require_relative '../lib/trees/orange_tree'
-require_relative '../lib/trees/tree'
+require_relative '../lib/trees/pear_tree'
+
 require_relative '../lib/fruits/fruit'
 require_relative '../lib/fruits/orange'
 require_relative '../lib/fruits/apple'
+require_relative '../lib/fruits/pear'
 
 describe "OrangeTree" do
 
@@ -92,9 +95,47 @@ describe "AppleTree" do
   end
 end
 
-describe "Orange" do
+describe "Pear" do
   it "has a diameter of 1" do
-    orange = Orange.new
-    expect(orange.diameter).to eq(1)
+    pear = pear.new
+    expect(pear.diameter).to eq(1)
+  end
+end
+
+describe "pearTree" do
+
+  before :each do
+    @pear_tree = PearTree.new
+  end
+
+  it "creates an pear tree" do
+    expect(@pear_tree).to be_an_instance_of(PearTree)
+  end
+
+  it "has height" do
+    expect(@pear_tree.height).not_to be(nil)
+  end
+
+  it "has age" do
+    expect(@pear_tree.age).not_to be(nil)
+  end
+
+  it "grows height 3 cm every year" do
+    pear_tree = PearTree.new
+    pear_tree.age!
+    expect(pear_tree.height).to eq(3)
+  end
+
+  it "adds 1 year each time age! is called" do
+    pear_tree = PearTree.new
+    pear_tree.age!
+    expect(pear_tree.age).to eq(1)
+  end
+end
+
+describe "Pear" do
+  it "has a diameter of 1" do
+    pear = Pear.new
+    expect(pear.diameter).to eq(1)
   end
 end
