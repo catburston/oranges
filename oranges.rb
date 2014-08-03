@@ -1,11 +1,12 @@
-#oranges.rb
 class OrangeTree
 
-	attr_reader :height, :age
+	attr_reader :height, :age, :oranges
+		#Only for variables that will be accessed outside the class
 
 	def initialize
-		@height = 0
+		@height = 0		#put @ if diff methods will use
 		@age = 0
+		@oranges = []
 	end
 
 	def age! 					#Increase age only
@@ -22,10 +23,21 @@ class OrangeTree
 	end
 
 	def dead?
+		@age >= 20
 	end
 
-	# Dead at 20 years
-	# Stops growing at 15 years
+	def can_bear_fruit?
+		@age >= 5 && !dead?
+	end
+
+	def any_orange?
+		!@oranges.empty?
+	end
+
+	def add_orange
+		orange = Orange.new
+		@oranges << orange
+	end
 
 end
 
@@ -39,7 +51,7 @@ class Orange
 
 end
 
-##TESTS
+##TEST FOR ORANGE TREE
 tree = OrangeTree.new
 puts tree.height == 0
 puts tree.age == 0
@@ -48,12 +60,29 @@ tree.age!
 puts tree.age == 1
 puts tree.height == 10
 
+puts tree.can_bear_fruit? == false
+puts tree.any_orange? == false
+
 16.times do
 	tree.age!
 end
 
+puts tree.can_bear_fruit? == true
+100.times do
+	tree.add_orange
+end
+
+puts tree.oranges.length == 100
+
 puts tree.age == 17
 puts tree.height == 150
+
+5.times do
+	tree.age!
+end
+
+puts tree.dead? == true
+puts tree.can_bear_fruit? == false
 
 orange = Orange.new
 puts orange.diameter == 1
