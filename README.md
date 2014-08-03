@@ -31,8 +31,10 @@ tree.age!
 end
 
 puts "Alas, the tree, she is dead!"
+
 Learning Goals
 We're modeling a simple system with two objects: orange trees and oranges. We want you to get familiar with defining simple classes and relating them to each other. You'll also learn more about variable scope, and the attr_reader/writer/accessor methods.
+
 Objectives
 Implement the OrangeTree and Orange classes
 Use attr_reader, attr_writer, and/or attr_accessor so that we can call tree.height and tree.age to get a tree's height or age, respectively. Which of the three attr_ methods should you be using and why?
@@ -50,6 +52,7 @@ Have an OrangeTree#height method which returns the tree's current height
 Have an OrangeTree#age method which returns the tree's current age
 Have an OrangeTree#age! method which ages the tree one year and grows the tree a little, if it's able to grow
 Have an OrangeTree#dead? method which returns true if the tree has died
+
 Implement Orange-picking
 After some number of years — you decide — the orange tree starts to bear fruit. Write a method OrangeTree#any_oranges? which returns true if there are any oranges on the tree and false otherwise.
 

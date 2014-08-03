@@ -8,9 +8,24 @@ class OrangeTree
 		@age = 0
 	end
 
-	def age!
-		@age +=1
+	def age! 					#Increase age only
+		@age += 1
+		growable
 	end
+
+	def height! 			#Increase height only
+		@height += 10
+	end
+
+	def growable 			#Tells you if can or cannot grow
+		height! if @age <= 15
+	end
+
+	def dead?
+	end
+
+	# Dead at 20 years
+	# Stops growing at 15 years
 
 end
 
@@ -24,12 +39,21 @@ class Orange
 
 end
 
+##TESTS
 tree = OrangeTree.new
 puts tree.height == 0
 puts tree.age == 0
 
 tree.age!
 puts tree.age == 1
+puts tree.height == 10
+
+16.times do
+	tree.age!
+end
+
+puts tree.age == 17
+puts tree.height == 150
 
 orange = Orange.new
 puts orange.diameter == 1
