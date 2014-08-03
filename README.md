@@ -64,3 +64,44 @@ Does the script run?
 Does the script at the top of the challenge run and output what you'd expect? (Hint: you have to be clear about your expectations before you an answer that question.)
 
 If not, what are the errors or unexpected behaviors? Do you understand them?
+
+We've built a simple model of a single fruit and a single fruit tree with our Orange and OrangeTree classes. Let's expand it to a whole grove with multiple kinds of trees.
+By the end we'll have classes like FruitGrove, AppleTree, and PearTree.
+
+Learning Objectives
+This challenge will be our first substantial encounter with inheritance.
+
+Objectives
+The AppleTree and Apple Classes
+Let's start by defining AppleTree and Apple classes. They should behave the same as OrangeTree, although have a different life cycle.
+
+That is, they should support all the same methods, but the particularities might differ: apples have a smaller diameter but apple trees bear fruit sooner and bear more fruit when they do.
+
+Creating the Apple and AppleTree class at this stage shouldn't involve much more than copying your Orange and OrangeTree classes and changing a few variables or constants. If it's more complicated than that ask for help!
+
+The FruitTree and Fruit Classes
+You now have two kinds of trees which each bear their own fruits. They have tons of code in common. One way to deal with this repetition is to abstract out the common parts into a parent class. We'll call that parent class FruitTree, so your OrangeTree class should now look like:
+
+class OrangeTree < FruitTree
+ # code goes here
+end
+Think carefully about the parameters that make an orange tree different from an apple tree. They might include parameters like
+
+How much the tree grows each year
+How old the tree must be before it stops growing
+How old the tree must be before it bares fruit
+How much fruit the tree yields each year
+Maybe most importantly, what kind of fruit it bares
+There could be others, but this gives you an idea of some of the "parameters" that differentiate one fruit tree's behavior from another.
+
+The PearTree and Pear Classes
+Now that you have FruitTree and Fruit classes, create a PearTree class that yields Pears, just like OrangeTree and AppleTree.
+
+Create a TreeGrove Class
+Let's plant some trees! Create a TreeGrove class that works as follows.
+
+You can initialize a TreeGrove with an Array of any kind of FruitTree, of any age.
+There is a TreeGrove#age! method will will age each tree in the grove one year by calling age! on each FruitTree.
+There is a TreeGrove#trees method which returns all trees
+There is a TreeGrove#mature_trees method which returns all trees that can currently bear fruit
+There is a TreeGrove#dead_trees method which returns all dead trees

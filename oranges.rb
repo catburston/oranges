@@ -12,6 +12,7 @@ class OrangeTree
 	def age! 					#Increase age only
 		@age += 1
 		growable
+		add_orange if can_bear_fruit?
 	end
 
 	def height! 			#Increase height only
@@ -35,8 +36,14 @@ class OrangeTree
 	end
 
 	def add_orange
-		orange = Orange.new
-		@oranges << orange
+		10.times do
+			@oranges << Orange.new
+		end
+	end
+
+	def pick_orange!
+		# @oranges.pop if any_orange? else "NoOrangesError"
+		any_orange? ? @oranges.pop : "NoOrangesError"
 	end
 
 end
@@ -60,6 +67,7 @@ tree.age!
 puts tree.age == 1
 puts tree.height == 10
 
+puts tree.pick_orange!
 puts tree.can_bear_fruit? == false
 puts tree.any_orange? == false
 
@@ -68,11 +76,12 @@ puts tree.any_orange? == false
 end
 
 puts tree.can_bear_fruit? == true
-100.times do
-	tree.add_orange
-end
 
-puts tree.oranges.length == 100
+puts tree.age
+puts tree.oranges.length
+
+tree.pick_orange!
+puts tree.oranges.length
 
 puts tree.age == 17
 puts tree.height == 150
