@@ -33,8 +33,8 @@ describe "OrangeTree" do
   end
 
   it "displays no orange error when there aren't oranges" do
-    orange = @orange_tree.pick_orange!
-    expect(orange).to eq("NoOrangesError")
+    orange = @orange_tree.pick_fruit!
+    expect(orange).to eq("ERROR: No Fruit Available")
   end
 
   it "can decide if is able to bear fruit" do
@@ -63,6 +63,15 @@ describe "OrangeTree" do
   end
 
 end
+
+
+describe "Orange" do
+  it "has a diameter of 1" do
+    orange = Orange.new
+    expect(orange.diameter).to eq(1)
+  end
+end
+
 
 describe "AppleTree" do
 
@@ -95,10 +104,10 @@ describe "AppleTree" do
   end
 end
 
-describe "Pear" do
+describe "Apple" do
   it "has a diameter of 1" do
-    pear = pear.new
-    expect(pear.diameter).to eq(1)
+    apple = Apple.new
+    expect(apple.diameter).to eq(1)
   end
 end
 
@@ -120,10 +129,10 @@ describe "pearTree" do
     expect(@pear_tree.age).not_to be(nil)
   end
 
-  it "grows height 3 cm every year" do
+  it "grows height 5 cm every year" do
     pear_tree = PearTree.new
     pear_tree.age!
-    expect(pear_tree.height).to eq(3)
+    expect(pear_tree.height).to eq(5)
   end
 
   it "adds 1 year each time age! is called" do

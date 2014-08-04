@@ -12,7 +12,7 @@ class PearTree < Tree
     @pears = []
   end
 
-  def any_apple?
+  def any_pear?
     !@pears.empty?
   end
 

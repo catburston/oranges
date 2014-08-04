@@ -8,6 +8,7 @@ class Tree
     @death_age = 0
     @annual_growth = 0
     @min_growable_age = 0
+    @fruits=[]
   end
 
   def age!
@@ -31,5 +32,14 @@ class Tree
   def can_bear_fruit?
     @age >= @min_growable_age && !dead?
   end
+
+  def any_fruit?
+    !@fruits.empty?
+  end
+
+  def pick_fruit!
+    any_fruit? ? @fruits.pop : "ERROR: No Fruit Available"
+  end
+
 
 end
